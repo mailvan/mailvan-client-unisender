@@ -1,0 +1,88 @@
+{
+    "name": "Unisender",
+    "operations": {
+        "subscribe": {
+            "httpMethod": "POST",
+            "uri": "subscribe?format=json",
+            "summary": "Subscribe user to list",
+            "responseClass": "IM\\MailingList\\Client\\Unisender\\Response\\Subscription",
+            "parameters": {
+                "api_key": {
+                    "location": "postField",
+                    "required": true
+                },
+                "list_ids": {
+                    "location": "postField",
+                    "required": true
+                },
+                "fields": {
+                    "location": "postField",
+                    "required": true
+                },
+                "tags": {
+                    "location": "postField"
+                },
+                "double_optin": {
+                    "location": "postField",
+                    "default": 1
+                },
+                "overwrite": {
+                    "location": "postField",
+                    "default": 0
+                },
+                "request_ip": {
+                    "location": "postField"
+                },
+                "request_time": {
+                    "location": "postField"
+                },
+                "confirm_ip": {
+                    "location": "postField"
+                },
+                "confirm_time": {
+                    "location": "postField"
+                }
+            }
+        },
+
+        "getLists":{
+            "httpMethod": "POST",
+            "uri": "getLists?format=json",
+            "summary": "Get subscription lists",
+            "responseClass": "IM\\MailingList\\Client\\Unisender\\Response\\SubscriptionLists",
+            "parameters": {
+                "api_key": {
+                    "location": "body",
+                    "required": true
+                }
+            }
+        },
+
+        "unsubscribe": {
+            "httpMethod": "POST",
+            "uri": "exclude?format=json",
+            "summary": "Remove user from list",
+            "responseClass": "IM\\MailingList\\Client\\Unisender\\Response\\SubscriptionRemove",
+            "parameters": {
+                "api_key": {
+                    "location": "postField",
+                    "required": true
+                },
+                "contact_type": {
+                    "location": "postField",
+                    "required": true,
+                    "default": "email"
+                },
+                "contact": {
+                    "location": "postField",
+                    "required": true
+                },
+                "list_ids": {
+                    "location": "postField",
+                    "required": true
+                }
+            }
+        }
+    }
+}
+
